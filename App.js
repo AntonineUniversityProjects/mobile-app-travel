@@ -1,54 +1,70 @@
-import Flags from "./screens/Flags.js";
+import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import Android from "./screens/Android.js";
-import Text from "./screens/Text.js";
-import Home from "./screens/Home.js";
-import Camera from "./screens/Camera.js";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
-import { Platform } from "expo-modules-core";
-// import { ScrollView } from "react-navigation";
+import { Platform } from "react-native";
+import Flags from "./screens/Flags";
+import Android from "./screens/Android";
+import TextScreen from "./screens/Text";
+// import Home from "./screens/Home";
+import Hero from "./screens/Hero";
+import Camera from "./screens/Camera";
+import Signup from "./screens/Signup";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
-export default function App() {
+const HomeStack = () => {
   return (
-    <>
-      <NavigationContainer
-        initialRouteName={Platform.OS === "ios" ? "Home" : "Android"}
-      >
-        <Stack.Navigator>
-          <Stack.Screen
-            name="Home"
-            component={Home}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Flags"
-            component={Flags}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Text"
-            component={Text}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Camera"
-            component={Camera}
-            options={{ headerShown: false }}
-          />
-          {Platform.OS === "android" && (
-            <Stack.Screen name="Android" component={Android} />
-          )}
-        </Stack.Navigator>
-      </NavigationContainer>
-
-      <Drawer.Navigator>
-        <Drawer.Screen name="Feed" element = {Android} />
-        <Drawer.Screen name="Article" component = {Flags} />
-      </Drawer.Navigator>
-    </>
+    <Stack.Navigator
+      initialRouteName={Platform.OS === "ios" ? "Hero" : "Hero"}
+    >
+      {/* <Stack.Screen
+        name="Home"
+        component={Home}
+        options={{ headerShown: false }}
+      /> */}
+      <Stack.Screen
+        name="Flags"
+        component={Flags}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Text"
+        component={TextScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Camera"
+        component={Camera}
+        options={{ headerShown: false }}
+      />
+      {Platform.OS === "android" && (
+        <Stack.Screen name="Android" component={Android} />
+      )}
+      <Stack.Screen
+        name="Hero"
+        component={Hero}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Signup"
+        component={Signup}
+        options={{ headerShown: false }}
+      />
+    </Stack.Navigator>
   );
-}
+};
+
+
+const App = () => {
+  return (
+    <NavigationContainer>
+      <Drawer.Navigator initialRouteName="Hero">
+        <Drawer.Screen name="Hero" component={Hero} />
+        <Drawer.Screen name="Signup" component={Signup} />
+      </Drawer.Navigator>
+    </NavigationContainer>
+  );
+};
+export default App;
