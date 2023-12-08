@@ -9,25 +9,45 @@ import {
   KeyboardAvoidingView,
   ScrollView,
 } from "react-native";
-import { initializeApp } from 'firebase/app';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-import "../backend/firebaseConfig.js";
+import { initializeApp } from "firebase/app";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { Alert } from "react-native";
+import { initializeAuth, getReactNativePersistence } from "firebase/auth";
+import ReactNativeAsyncStorage from "@react-native-async-storage/async-storage";
 
-import { firebaseConfig } from '../backend/firebaseConfig.js';
-
+const firebaseConfig = {
+  apiKey: "AIzaSyCh4_vxsl8QoWF-KNMAd9nHngvMYe6wRDc",
+  authDomain: "travel-mobile-app-f2687.firebaseapp.com",
+  projectId: "travel-mobile-app-f2687",
+  storageBucket: "travel-mobile-app-f2687.appspot.com",
+  messagingSenderId: "1007492362048",
+  appId: "1:1007492362048:web:3b78306dab5d3c1e44d4a5",
+  measurementId: "G-SF63TVK801",
+};
 
 const firebaseApp = initializeApp(firebaseConfig);
 
+// Initialize Firebase with AsyncStorage for persistence
+const auth = initializeAuth(firebaseApp, {
+  persistence: getReactNativePersistence(ReactNativeAsyncStorage),
+});
+
 const Signup = ({ navigation }) => {
+  const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
- 
 
   const handleSignup = async () => {
     try {
-      const auth = getAuth(firebaseApp);
+      // Validate the input fields
+      if (!fullName || !email || !password) {
+        Alert.alert("Error", "Please fill in all the fields");
+        return;
+      }
+
       await createUserWithEmailAndPassword(auth, email, password);
       console.log("User signed up successfully!");
+
       // You can navigate to the next screen or perform other actions here
     } catch (error) {
       console.error("Error signing up:", error.message);
@@ -35,78 +55,54 @@ const Signup = ({ navigation }) => {
     }
   };
 
+  return (
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+    >
+      <ScrollView>
+        <Image
+          source={{
+            uri: "https://mobilephoto.blob.core.windows.net/mobilrphotod/hikingOnTrail.jpg",
+          }}
+          style={styles.travelImage}
+          resizeMode="cover"
+        />
 
- return (
-   <KeyboardAvoidingView
-     style={styles.container}
-     behavior={Platform.OS === "ios" ? "padding" : "height"}
-   >
-     <ScrollView>
-       <Image
-         source={{
-           uri: "https://mobilephoto.blob.core.windows.net/mobilrphotod/hikingOnTrail.jpg",
-         }}
-         style={styles.travelImage}
-         resizeMode="cover"
-       />
+        <View style={styles.contentContainer}>
+          {/* Your input fields go here */}
+          <TextInput
+            style={styles.input}
+            placeholder="Full Name"
+            placeholderTextColor="#666"
+            value={fullName}
+            onChangeText={(text) => setFullName(text)}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Email"
+            placeholderTextColor="#666"
+            keyboardType="email-address"
+            value={email}
+            onChangeText={(text) => setEmail(text)}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Password"
+            placeholderTextColor="#666"
+            secureTextEntry
+            value={password}
+            onChangeText={(text) => setPassword(text)}
+          />
 
-       <View style={styles.contentContainer}>
-         {/* Your input fields go here */}
-         <TextInput
-           style={styles.input}
-           placeholder="Full Name"
-           placeholderTextColor="#666"
-         />
-         <TextInput
-           style={styles.input}
-           placeholder="Email"
-           placeholderTextColor="#666"
-           keyboardType="email-address"
-         />
-         <TextInput
-           style={styles.input}
-           placeholder="Password"
-           placeholderTextColor="#666"
-           secureTextEntry
-           onFocus={togglePasswordModal}
-         />
-
-         {/* Signup Button */}
-         <TouchableOpacity
-           style={styles.signupButton}
-           onPress={{handleSignup}}
-         >
-           <Text style={styles.buttonText}>Sign Up</Text>
-         </TouchableOpacity>
-       </View>
-     </ScrollView>
-
-     {/* this model here is to reshow the password so i can write it clearly */}
-
-     {/* <Modal
-        animationType="slide"
-        transparent={true}
-        visible={isPasswordModalVisible}
-        onRequestClose={togglePasswordModal}
-      >
-        <View style={styles.modalContainer}>
-          <View style={styles.modalContent}>
-            <Text style={styles.modalText}>Enter Password Clearly:</Text>
-            <TextInput
-              style={styles.modalInput}
-              placeholder="Password"
-              placeholderTextColor="#666"
-              secureTextEntry={false} // Show the entered characters
-              value={clearPassword}
-              onChangeText={(text) => setClearPassword(text)}
-              onSubmitEditing={handleClearPasswordSubmit} // Handle Enter key press
-            />
-            <Button title="Close" onPress={togglePasswordModal} />
-          </View>
+          {/* Signup Button */}
+          <TouchableOpacity style={styles.signupButton} onPress={handleSignup}>
+            <Text style={styles.buttonText}>Sign Up</Text>
+          </TouchableOpacity>
         </View>
-      </Modal> */}
-   </KeyboardAvoidingView>
- );
+      </ScrollView>
+    </KeyboardAvoidingView>
+  );
 };
 
 const styles = StyleSheet.create({
