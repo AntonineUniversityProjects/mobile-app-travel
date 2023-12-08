@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import { initializeApp } from 'firebase/app';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import "../backend/firebaseConfig.js";
 
 import { firebaseConfig } from '../backend/firebaseConfig.js';
 
