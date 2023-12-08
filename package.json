@@ -10,6 +10,8 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@react-native-firebase/app": "^18.7.1",
+    "@react-native-firebase/auth": "^18.7.1",
     "@react-native-masked-view/masked-view": "0.2.9",
     "@react-navigation/drawer": "^6.6.6",
     "@react-navigation/native": "^6.1.9",
@@ -18,11 +20,14 @@
     "expo-camera": "~13.4.4",
     "expo-modules-core": "^1.5.12",
     "expo-status-bar": "~1.6.0",
+    "firebase": "^10.7.1",
     "react": "18.2.0",
     "react-native": "0.72.6",
     "react-native-animatable": "^1.4.0",
+    "react-native-dotenv": "^3.4.9",
     "react-native-drawer-layout": "^3.2.2",
     "react-native-gesture-handler": "~2.12.0",
+    "react-native-Onboarding-swiper": "^1.2.0",
     "react-native-reanimated": "~3.3.0",
     "react-native-vision-camera": "^3.6.12",
     "react-navigation": "^4.4.4",

@@ -10,15 +10,17 @@ import TextScreen from "./screens/Text";
 import Hero from "./screens/Hero";
 import Camera from "./screens/Camera";
 import Signup from "./screens/Signup";
+// import Onboarding from "react-native-onboarding-swiper";
+import Onboarding1 from "./screens/Onboarding/Onboarding1";
+import Onboarding2 from "./screens/Onboarding/Onboarding2";
+import Onboarding3 from "./screens/Onboarding/Onboarding3";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
-
+// {Platform.OS === "ios" ? "Hero" : "Hero"}
 const HomeStack = () => {
   return (
-    <Stack.Navigator
-      initialRouteName={Platform.OS === "ios" ? "Hero" : "Hero"}
-    >
+    <Stack.Navigator initialRouteName="Onboarding1" headerMode="none">
       {/* <Stack.Screen
         name="Home"
         component={Home}
@@ -52,17 +54,25 @@ const HomeStack = () => {
         component={Signup}
         options={{ headerShown: false }}
       />
+      {/* <Stack.Screen name="Onboarding" component={Onboarding} /> */}
+      <Stack.Screen name="Onboarding1" component={Onboarding1} />
+      <Stack.Screen name="Onboarding2" component={Onboarding2} />
+      <Stack.Screen name="Onboarding3" component={Onboarding3} />
     </Stack.Navigator>
   );
 };
 
-
 const App = () => {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Hero">
-        <Drawer.Screen name="Hero" component={Hero} />
+      <Drawer.Navigator initialRouteName="Onboarding1">
+        <Drawer.Screen
+          name="Hero"
+          component={Hero}
+          // options={{ drawerLabel: () => null }}
+        />
         <Drawer.Screen name="Signup" component={Signup} />
+        <Drawer.Screen name="Flags" component={Flags} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
