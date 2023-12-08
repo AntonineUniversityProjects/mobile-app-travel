@@ -18,6 +18,9 @@ import Onboarding3 from "./screens/Onboarding/Onboarding3";
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 // {Platform.OS === "ios" ? "Hero" : "Hero"}
+
+
+
 const HomeStack = () => {
   return (
     <Stack.Navigator initialRouteName="Onboarding1" headerMode="none">
