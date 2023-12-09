@@ -2,6 +2,7 @@ import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
+import {createBottomTabNavigator} from "@react-navigation/bottom-tabs"
 import { Platform } from "react-native";
 import Flags from "./screens/Flags";
 import Android from "./screens/Android";
@@ -16,7 +17,8 @@ import Onboarding2 from "./screens/Onboarding/Onboarding2";
 import Onboarding3 from "./screens/Onboarding/Onboarding3";
 
 const Stack = createStackNavigator();
-const Drawer = createDrawerNavigator();
+// const Drawer = createDrawerNavigator();
+const Tab = createBottomTabNavigator();
 // {Platform.OS === "ios" ? "Hero" : "Hero"}
 
 
@@ -68,15 +70,15 @@ const HomeStack = () => {
 const App = () => {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Onboarding1">
-        <Drawer.Screen
+      <Tab.Navigator initialRouteName="Onboarding1">
+        <Tab.Screen
           name="Hero"
           component={Hero}
           // options={{ drawerLabel: () => null }}
         />
-        <Drawer.Screen name="Signup" component={Signup} />
-        <Drawer.Screen name="Flags" component={Flags} />
-      </Drawer.Navigator>
+        <Tab.Screen name="Signup" component={Signup} />
+        <Tab.Screen name="Flags" component={Flags} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 };

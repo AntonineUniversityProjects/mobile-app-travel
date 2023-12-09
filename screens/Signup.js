@@ -40,11 +40,10 @@ const Signup = ({ navigation }) => {
   };
 
   return (
-    <KeyboardAvoidingView
-      style={styles.container}
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-    >
-      <ScrollView>
+   
+        <KeyboardAvoidingView style={styles.container} behavior={"padding"} keyboardVerticalOffset={100}>
+      <ScrollView> 
+        
         <Image
           source={{
             uri: "https://mobilephoto.blob.core.windows.net/mobilrphotod/hikingOnTrail.jpg",
@@ -84,8 +83,11 @@ const Signup = ({ navigation }) => {
             <Text style={styles.buttonText}>Sign Up</Text>
           </TouchableOpacity>
         </View>
-      </ScrollView>
-    </KeyboardAvoidingView>
+       
+      </ScrollView> 
+      </KeyboardAvoidingView>
+      
+    
   );
 };
 
