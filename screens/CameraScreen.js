@@ -44,10 +44,10 @@
 
 // export default Camera;
 
-// import { Camera, CameraType } from "expo-camera";
+import { Camera, CameraType } from "expo-camera";
 import { useState , useEffect , useRef } from "react";
 import { Button, StyleSheet, Text, TouchableOpacity, View  , Image} from "react-native";
-import {  Camera,CameraType , MediaLibrary } from "expo-media-library";
+import { MediaLibrary } from "expo-media-library";
 
 export default function CameraScreen() {
   const [type, setType] = useState(CameraType.back);
