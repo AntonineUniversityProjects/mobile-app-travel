@@ -8,7 +8,7 @@ import Flags from "./screens/Flags";
 import Android from "./screens/Android";
 import TextScreen from "./screens/Text";
 import Hero from "./screens/Hero";
-import Camera from "./screens/Camera";
+import Camera from "./screens/CameraScreen";
 import Signup from "./screens/Signup";
 import Onboarding1 from "./screens/Onboarding/Onboarding1";
 import Onboarding2 from "./screens/Onboarding/Onboarding2";
@@ -17,6 +17,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import Home from "./screens/Home";
+import CameraScreen from "./screens/CameraScreen";
 // import Ionicons from "react-native-vector-icons/Ionicons";
 
 // const loadFonts = async () => {
@@ -66,6 +67,11 @@ const HomeStack = () => {
         component={Home}
         options={{ headerShown: false }}
       />
+      <Stack.Screen
+        name="CameraScreen"
+        component={CameraScreen}
+        options={{ headerShown: false }}
+      />
 
       {/* <Stack.Screen name="Onboarding" component={Onboarding} /> */}
       <Stack.Screen name="Onboarding1" component={Onboarding1} />
@@ -112,6 +118,7 @@ const App = () => {
         />
         <Tab.Screen name="Signup" component={Signup} />
         <Tab.Screen name="Flags" component={Flags} />
+        <Tab.Screen name="Camera" component={CameraScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
