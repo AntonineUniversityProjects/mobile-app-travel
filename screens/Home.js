@@ -1,74 +1,84 @@
-// import { StyleSheet, Text as TextItem, View, Button } from "react-native";
-// import * as React from "react";
-// import { useNavigation } from "@react-navigation/native";
-// import Hero from "../screens/Hero";
-// import TextScreen from "../screens/Text";
-// import Flags from "../screens/Flags";
-// import Camera from "../screens/Camera";
+// HomeScreen.js
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
-// const Home = () => {
-//   const navigation = useNavigation();
+const countries = [
+  { id: 1, name: "Country 1" },
+  { id: 2, name: "Country 2" },
+  { id: 3, name: "Country 3" },
+  // Add more countries as needed
+];
 
-//   return (
-//     <>
-//       <View style={styles.container}>
-//         <TextItem>Flags Screen</TextItem>
-//         <View style={styles.buttonContainer}>
-//           <Button
-//             title="Go to Flags"
-//             onPress={() => navigation.navigate("HomeStack", { screen: "Hero" })}
+const Home = () => {
+  const navigation = useNavigation();
+  const [selectedCountry, setSelectedCountry] = useState(null);
 
+  const handleCountryPress = (country) => {
+    setSelectedCountry(country);
+    // You can navigate to another screen or perform any other action here
+  };
 
-//             color="#007bff" // Specify the color directly for Android
-//           />
-//         </View>
-//       </View>
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Select a Country</Text>
+      <ScrollView
+        contentContainerStyle={styles.scrollViewContent}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+      >
+        {countries.map((country) => (
+          <TouchableOpacity
+            key={country.id}
+            style={[
+              styles.countryCard,
+              selectedCountry === country && styles.selectedCountry,
+            ]}
+            onPress={() => handleCountryPress(country)}
+          >
+            <Text style={styles.countryName}>{country.name}</Text>
+          </TouchableOpacity>
+        ))}
+      </ScrollView>
+    </View>
+  );
+};
 
-//       <View style={styles.container}>
-//         <TextItem>Text Screen</TextItem>
-//         <View style={styles.buttonContainer}>
-//           <Button
-//             title="Go to Text"
-//             onPress={() => navigation.navigate("TextScreen")}
-//             color="#007bff" // Specify the color directly for Android
-//           />
-//         </View>
-//       </View>
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 16,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 16,
+  },
+  scrollViewContent: {
+    flexDirection: "row",
+  },
+  countryCard: {
+    backgroundColor: "#e0e0e0",
+    borderRadius: 8,
+    padding: 16,
+    marginRight: 16,
+    alignItems: "center",
+  },
+  selectedCountry: {
+    backgroundColor: "#64b5f6", 
+  },
+  countryName: {
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+});
 
-//       <View style={styles.container}>
-//         <TextItem>Camera </TextItem>
-//         <View style={styles.buttonContainer}>
-//           <Button
-//             title="Go to Camera"
-//             onPress={() => navigation.navigate("Camera")}
-//             color="#007bff" // Specify the color directly for Android
-//           />
-//         </View>
-//       </View>
-
-//       <View style={styles.container}>
-//         <TextItem>Hero Screen</TextItem>
-//         <View style={styles.buttonContainer}>
-//           <Button
-//             title="Go to Hero"
-//             onPress={() => navigation.navigate("Hero")}
-//             color="#007bff" // Specify the color directly for Android
-//           />
-//         </View>
-//       </View>
-//     </>
-//   );
-// };
-
-// export default Home;
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     alignItems: "center",
-//     justifyContent: "center",
-//   },
-//   buttonContainer: {
-//     marginTop: 10, // Adjust spacing as needed
-//   },
-// });
+export default Home;

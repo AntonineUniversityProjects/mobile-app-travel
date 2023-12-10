@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import * as Animatable from "react-native-animatable";
 import { useNavigation } from "@react-navigation/native";
-// import Onboarding1 from "./Onboarding/Onboarding1";
 import Signup from "./Signup";
 
 import {
@@ -117,7 +116,7 @@ const Hero = () => {
         />
 
         <TouchableOpacity
-          onPress={() => navigation.navigate("Signup")}
+          onPress={() => navigation.navigate(Signup)}
           style={{
             position: "absolute",
             bottom: 20,

@@ -8,15 +8,17 @@ import {
   StyleSheet,
   KeyboardAvoidingView,
   ScrollView,
-  Platform,
+  Alert,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { Alert } from "react-native";
-
 import { auth } from "../config/firebaseconfig.js";
+import Home from "../App.js";
 
-const Signup = ({ navigation }) => {
+const Signup = () => {
+  const navigation = useNavigation();
+
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -32,7 +34,7 @@ const Signup = ({ navigation }) => {
       await createUserWithEmailAndPassword(auth, email, password);
       console.log("User signed up successfully!");
 
-      // You can navigate to the next screen or perform other actions here
+      navigation.navigate( "Home" );
     } catch (error) {
       console.error("Error signing up:", error.message);
       Alert.alert("Error", error.message);
@@ -40,10 +42,12 @@ const Signup = ({ navigation }) => {
   };
 
   return (
-   
-        <KeyboardAvoidingView style={styles.container} behavior={"padding"} keyboardVerticalOffset={100}>
-      <ScrollView> 
-        
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={"padding"}
+      keyboardVerticalOffset={100}
+    >
+      <ScrollView>
         <Image
           source={{
             uri: "https://mobilephoto.blob.core.windows.net/mobilrphotod/hikingOnTrail.jpg",
@@ -83,11 +87,8 @@ const Signup = ({ navigation }) => {
             <Text style={styles.buttonText}>Sign Up</Text>
           </TouchableOpacity>
         </View>
-       
-      </ScrollView> 
-      </KeyboardAvoidingView>
-      
-    
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 };
 
