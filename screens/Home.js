@@ -1,84 +1,78 @@
-// HomeScreen.js
-import React, { useState } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  TouchableOpacity,
-} from "react-native";
-import { useNavigation } from "@react-navigation/native";
+// screens/HomeScreen.js
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
+import { FontAwesome5 } from "@expo/vector-icons";
+import * as Font from "expo-font";
+import{ SearchBar} from "../components/SearchBar.jsx"
+Font.loadAsync({
+  Japanese: require("../assets/fonts/Dekers_light.ttf"),
+  // Add additional weights or styles if needed
+});
 
-const countries = [
-  { id: 1, name: "Country 1" },
-  { id: 2, name: "Country 2" },
-  { id: 3, name: "Country 3" },
-  // Add more countries as needed
-];
-
-const Home = () => {
-  const navigation = useNavigation();
-  const [selectedCountry, setSelectedCountry] = useState(null);
-
-  const handleCountryPress = (country) => {
-    setSelectedCountry(country);
-    // You can navigate to another screen or perform any other action here
-  };
-
+const HomeScreen = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Select a Country</Text>
-      <ScrollView
-        contentContainerStyle={styles.scrollViewContent}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-      >
-        {countries.map((country) => (
-          <TouchableOpacity
-            key={country.id}
-            style={[
-              styles.countryCard,
-              selectedCountry === country && styles.selectedCountry,
-            ]}
-            onPress={() => handleCountryPress(country)}
-          >
-            <Text style={styles.countryName}>{country.name}</Text>
-          </TouchableOpacity>
-        ))}
-      </ScrollView>
+      <View style={styles.TopContainer}>
+        <Text style={styles.TopContainerText}>
+          Have A Plan For{"\n"}A Vacation?
+        </Text>
+        <View style={styles.notificationContainer}>
+          <FontAwesome5
+            name="bell"
+            size={20}
+            color="#FFF"
+            style={styles.notificationIcon}
+          />
+        </View>
+      </View>
+      <SearchBar />
+      {/* Add the rest of your content below this */}
+      <View>
+        <Text>Your main content goes here</Text>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
+  // container: {
+  //   flex: 1,
+  //   backgroundColor : "#FFF",
+  //   justifyContent: "flex-start",
+  //   alignItems: "center",
+  // },
+  TopContainer: {
+    flexDirection: "row", // Use row to align text and icon horizontally
+    alignItems: "center",
     justifyContent: "center",
-    alignItems: "center",
+    paddingTop: 20,
+    width: "100%",
+    backgroundColor: "#E99265",
+    borderBottomLeftRadius: 40,
+    borderBottomRightRadius: 40,
   },
-  title: {
-    fontSize: 24,
+  TopContainerText: {
+    fontSize: 20,
+    fontFamily: "Japanese",
     fontWeight: "bold",
-    marginBottom: 16,
+    paddingTop: 20,
+    paddingBottom: 20,
+    paddingRight: 10,
+    paddingLeft: 30,
+    color: "#FFF",
   },
-  scrollViewContent: {
-    flexDirection: "row",
+  notificationContainer: {
+    marginLeft: "auto", // Aligns the notification icon to the right
+    paddingBottom: 10,
   },
-  countryCard: {
-    backgroundColor: "#e0e0e0",
-    borderRadius: 8,
-    padding: 16,
-    marginRight: 16,
-    alignItems: "center",
+  notificationIcon: {
+    fontSize: 30,
+    paddingRight: 20,
   },
-  selectedCountry: {
-    backgroundColor: "#64b5f6", 
-  },
-  countryName: {
-    fontSize: 16,
-    fontWeight: "bold",
-  },
+
 });
 
-export default Home;
+export default HomeScreen;
+
+
+

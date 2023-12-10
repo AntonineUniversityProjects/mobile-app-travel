@@ -14,7 +14,6 @@ import Onboarding1 from "./screens/Onboarding/Onboarding1";
 import Onboarding2 from "./screens/Onboarding/Onboarding2";
 import Onboarding3 from "./screens/Onboarding/Onboarding3";
 import { Ionicons } from "@expo/vector-icons";
-import { AntDesign } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import Home from "./screens/Home";
 import CameraScreen from "./screens/CameraScreen";
@@ -55,7 +54,8 @@ const HomeStack = () => {
       <Stack.Screen
         name="Hero"
         component={Hero}
-        options={{ headerShown: false }}
+        options={{ headerShown: false
+         }}
       />
       <Stack.Screen
         name="Signup"
@@ -63,9 +63,9 @@ const HomeStack = () => {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="Home"
+        name=""
         component={Home}
-        options={{ headerShown: false }}
+        options={{ headerShown: true }}
       />
       <Stack.Screen
         name="CameraScreen"
@@ -85,7 +85,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator
-        initialRouteName="Hero"
+        initialRouteName="Onboarding1"
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
@@ -117,7 +117,7 @@ const App = () => {
           }}
         />
         <Tab.Screen name="Signup" component={Signup} />
-        <Tab.Screen name="Flags" component={Flags} />
+        <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="Camera" component={CameraScreen} />
       </Tab.Navigator>
     </NavigationContainer>
