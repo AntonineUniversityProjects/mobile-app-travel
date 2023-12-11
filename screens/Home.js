@@ -4,6 +4,7 @@ import { View, Text, StyleSheet } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import * as Font from "expo-font";
 import{ SearchBar} from "../components/SearchBar.jsx"
+import  TravelCarousel  from "../components/TravelCarousel.jsx";
 Font.loadAsync({
   Japanese: require("../assets/fonts/Dekers_light.ttf"),
   // Add additional weights or styles if needed
@@ -26,9 +27,13 @@ const HomeScreen = () => {
         </View>
       </View>
       <SearchBar />
-      {/* Add the rest of your content below this */}
+     
+         <TravelCarousel/>
+     
+     
+      
       <View>
-        <Text>Your main content goes here</Text>
+        {/* <Text>Your main content goes here</Text> */}
       </View>
     </View>
   );
