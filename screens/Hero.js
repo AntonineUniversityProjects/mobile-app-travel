@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import * as Animatable from "react-native-animatable";
 import { useNavigation } from "@react-navigation/native";
 import Signup from "./Signup";
+import Login from "./Login";
 
 import {
   View,
@@ -122,14 +123,31 @@ const Hero = () => {
             bottom: 20,
             width: "50%",
             height: 40,
-            backgroundColor: "#FFFFFF",
+            backgroundColor: "#00BCC9",
             borderRadius: 10,
             alignItems: "center",
             justifyContent: "center",
           }}
         >
-          <Text style={{ color: "#00BCC9", fontSize: 30, fontWeight: "bold" }}>
+          <Text style={{ color: "#FFFFFF", fontSize: 30, fontWeight: "bold" }}>
             Signup
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("Login");
+          }}
+          style={{
+            position: "absolute",
+            bottom: 0, // Set this to 0 to place it below Signup
+            width: "100%", // Make it full-width
+            height: 40,
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Text style={{ color: "#fff", fontSize: 18, fontWeight: "bold" , paddingTop : 21 }}>
+            already a user? log in
           </Text>
         </TouchableOpacity>
 

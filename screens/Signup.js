@@ -92,10 +92,10 @@ const Signup = () => {
             onChangeText={(text) => setPassword(text)}
           />
 
-          {/* Signup Button */}
           <TouchableOpacity style={styles.signupButton} onPress={handleSignup}>
             <Text style={styles.buttonText}>Sign Up</Text>
           </TouchableOpacity>
+
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
@@ -132,6 +132,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
   },
+
 });
 
 export default Signup;

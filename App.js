@@ -7,6 +7,8 @@ import Home from "./screens/Home";
 import Hero from "./screens/Hero";
 import CameraScreen from "./screens/CameraScreen";
 import Signup from "./screens/Signup";
+import Login from "./screens/Login";
+import PlaceDetailScreen from "./screens/PlaceDetailScreen";
 import Onboarding1 from "./screens/Onboarding/Onboarding1";
 import Onboarding2 from "./screens/Onboarding/Onboarding2";
 import Onboarding3 from "./screens/Onboarding/Onboarding3";
@@ -40,8 +42,14 @@ const App = () => {
         <Stack.Screen name="Onboarding2" component={Onboarding2} />
         <Stack.Screen name="Onboarding3" component={Onboarding3} />
         <Stack.Screen name="Signup" component={Signup} />
-        <Stack.Screen name="Home" component={HomeTabs} options = {{headerShown: false}} />
+        <Stack.Screen
+          name="Home"
+          component={HomeTabs}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen name="Hero" component={Hero} />
+        <Stack.Screen name="PlaceDetail" component={PlaceDetailScreen} />
+        <Stack.Screen name= "Login" component={Login}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
