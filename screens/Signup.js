@@ -11,10 +11,9 @@ import {
   Alert,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../config/firebaseconfig.js";
-import Home from "../App.js";
+import { CommonActions } from "@react-navigation/native";
 
 const Signup = () => {
   const navigation = useNavigation();
@@ -22,6 +21,7 @@ const Signup = () => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
   const handleSignup = async () => {
     try {
@@ -34,7 +34,17 @@ const Signup = () => {
       await createUserWithEmailAndPassword(auth, email, password);
       console.log("User signed up successfully!");
 
-      navigation.navigate( "Home" );
+      navigation.dispatch(
+        CommonActions.reset({
+          index: 0,
+          routes: [
+            {
+              name: "Home",
+              // You can add additional params if needed
+            },
+          ],
+        })
+      );
     } catch (error) {
       console.error("Error signing up:", error.message);
       Alert.alert("Error", error.message);

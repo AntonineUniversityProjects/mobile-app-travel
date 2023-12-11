@@ -135,14 +135,14 @@ const styles = StyleSheet.create({
     height: "50%",
     marginRight: 6,
     paddingLeft: 20,
-    paddingRight: 26, // Adjust the left padding to reduce space between images
+    paddingRight: 26, 
   },
   placeImage: {
     width: "100%",
     aspectRatio: 1,
     borderRadius: 10,
-    marginRight: 10, // Adjusted to create equal spacing on the right
-    marginLeft: 3, // Adjusted to create equal spacing on the left
+    marginRight: 10, 
+    marginLeft: 3, 
     marginBottom: 30,
   },
   placeDescription: {
