@@ -29,17 +29,17 @@ const styles = StyleSheet.create({
     padding: 5,
     marginTop: -12,
     borderRadius: 10,
+    borderWidth: 0.4,
+    borderColor : "#000",
     width: "85%",
     alignSelf: "center",
   },
   searchInput: {
     flex: 1,
     height: 20,
-    borderColor: "#DDD",
     borderRadius: 40,
     paddingLeft: 10,
     marginLeft: 10,
-    
   },
   searchIcon: {
     fontSize: 20,

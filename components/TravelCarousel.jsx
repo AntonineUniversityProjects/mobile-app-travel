@@ -8,7 +8,7 @@ const TravelCarousel = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) =>
-        prevIndex === travelImages.length - 2 ? 0 : prevIndex + 1
+        prevIndex === travelImages.length - 1 ? 0 : prevIndex + 1
       );
     }, 4000);
 

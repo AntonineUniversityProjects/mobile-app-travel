@@ -44,7 +44,7 @@ const HomeStack = () => {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="Camera"
+        name=""
         component={Camera}
         options={{ headerShown: false }}
       />
@@ -90,7 +90,7 @@ const App = () => {
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
 
-            if (route.name === "Hero") {
+            if (route.name === "Onboarding1") {
               iconName = focused ? "ios-person" : "ios-person-outline";
             } else if (route.name === "Signup") {
               iconName = focused ? "ios-person-add" : "ios-person-add-outline";
@@ -114,10 +114,19 @@ const App = () => {
             tabBarIcon: ({ color, size }) => (
               <FontAwesome5 name="home" size={size} color={color} />
             ),
+            headerShown: false,
           }}
         />
-        <Tab.Screen name="Signup" component={Signup} />
-        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen
+          name="Signup"
+          component={Signup}
+         
+        />
+        <Tab.Screen
+          name="Home"
+          component={Home}
+          
+        />
         <Tab.Screen name="Camera" component={CameraScreen} />
       </Tab.Navigator>
     </NavigationContainer>
