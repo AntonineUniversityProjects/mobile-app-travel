@@ -6,16 +6,15 @@ const NotificationScreen = ({ navigation }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [unreadNotificationCount, setUnreadNotificationCount] = useState(0);
-  useEffect(async () => {
-    let unreadCount = await getUnreadNotificationInboxCount(16726, 'tXj9QBdb7I44T6Oqs5YZQV');
-    console.log("unreadCount: ", unreadCount);
-    setUnreadNotificationCount(unreadCount);
-});
+
   useEffect(() => {
     const fetchNotifications = async () => {
       try {
         let notifications = await getNotificationInbox(16726, 'tXj9QBdb7I44T6Oqs5YZQV');
         setData(notifications);
+        let unreadCount = await getUnreadNotificationInboxCount(16726, 'tXj9QBdb7I44T6Oqs5YZQV');
+        console.log("unreadCount: ", unreadCount);
+        setUnreadNotificationCount(unreadCount);
       } catch (error) {
         console.error('Error fetching notifications:', error);
       } finally {
