@@ -1,17 +1,22 @@
 import React from "react";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { View, Text, StyleSheet, ScrollView,Button,TouchableOpacity} from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import * as Font from "expo-font";
 import { SearchBar } from "../components/SearchBar.jsx";
 import TravelCarousel from "../components/TravelCarousel.jsx";
 import PlaceCard from "../components/PlaceCard.jsx"; // Import the PlaceCard component
 
+import NotificationInbox from "./NotificationScreen.js";
+
 Font.loadAsync({
   Japanese: require("../assets/fonts/Dekers_light.ttf"),
   // Add additional weights or styles if needed
 });
 
-const HomeScreen = () => {
+
+const HomeScreen = ({ navigation }) => {
+
+
   const images = [
     "https://mobilephoto.blob.core.windows.net/mobilrphotod/1413271.jpg",
     "https://mobilephoto.blob.core.windows.net/mobilrphotod/tyre.jpeg",
@@ -41,14 +46,17 @@ const HomeScreen = () => {
           <Text style={styles.TopContainerText}>
             Have A Plan For{"\n"}A Vacation?
           </Text>
-          <View style={styles.notificationContainer}>
-            <FontAwesome5
-              name="bell"
-              size={20}
-              color="#FFF"
-              style={styles.notificationIcon}
-            />
-          </View>
+          <TouchableOpacity style={styles.notificationContainer} onPress={() => navigation.navigate("NotificationScreen")}>
+          <View >
+    <FontAwesome5
+      name="bell"
+      size={20}
+      color="#FFF"
+      style={styles.notificationIcon}
+    />
+  </View>
+</TouchableOpacity>
+        
         </View>
         <SearchBar />
         <TravelCarousel />

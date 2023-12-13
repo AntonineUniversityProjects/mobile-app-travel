@@ -15,6 +15,7 @@ import Onboarding3 from "./screens/Onboarding/Onboarding3";
 import BookingScreen from "./screens/BookingScreen";
 import FindLocationScreen from "./screens/FindLocationScreen";
 import VerificationScreen from "./screens/VerificationScreen";
+import NotificationScreen from "./screens/NotificationScreen"
 import registerNNPushToken from 'native-notify'; //for push notification
 
 const Stack = createNativeStackNavigator();
@@ -51,6 +52,7 @@ const App = () => {
         <Stack.Screen name="Onboarding3" component={Onboarding3} />
         <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen name="Booking" component={BookingScreen} />
+       <Stack.Screen name ="NotificationScreen" component={NotificationScreen}/>
         <Stack.Screen
           name="Home"
           component={HomeTabs}
