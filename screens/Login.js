@@ -6,69 +6,89 @@ import {
   TouchableOpacity,
   StyleSheet,
   Alert,
+  KeyboardAvoidingView
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../config/firebaseconfig.js";
 import { CommonActions } from "@react-navigation/native";
 
-const Login = () => {
-  const navigation = useNavigation();
+import TravelLoading from "../components/travelLoading";
+
+const Login = ({navigation}) => {
+
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleLogin = async () => {
     try {
-      // Validate the input fields
       if (!email || !password) {
         Alert.alert("Error", "Please fill in all the fields");
         return;
       }
 
-      await signInWithEmailAndPassword(auth, email, password);
-      console.log("User logged in successfully!");
+      setIsLoading(true); // Start loading
 
-      navigation.dispatch(
-        CommonActions.reset({
-          index: 0,
-          routes: [
-            {
-              name: "Home",
-              // You can add additional params if needed
-            },
-          ],
-        })
-      );
+      await signInWithEmailAndPassword(auth, email, password);
+      console.log("User signed up successfully!");
+
+      // Simulate a loading delay (you can replace this with a real loading scenario)
+      setTimeout(() => {
+        setIsLoading(false); // Stop loading
+
+        navigation.dispatch(
+          CommonActions.reset({
+            index: 0,
+            routes: [
+              {
+                name: "Home",
+              },
+            ],
+          })
+        );
+      }, 2000);
     } catch (error) {
-      console.error("Error logging in:", error.message);
+      setIsLoading(false); // Stop loading in case of an error
+      console.error("Error signing up:", error.message);
       Alert.alert("Error", error.message);
     }
   };
 
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        placeholderTextColor="#666"
-        keyboardType="email-address"
-        value={email}
-        onChangeText={(text) => setEmail(text)}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        placeholderTextColor="#666"
-        secureTextEntry
-        value={password}
-        onChangeText={(text) => setPassword(text)}
-      />
-      <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-        <Text style={styles.buttonText}>Login</Text>
-      </TouchableOpacity>
-    </View>
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={"padding"}
+      keyboardVerticalOffset={100}
+    >
+      {isLoading ? (
+        <TravelLoading/>
+      ) : (
+        <>
+          <Text style={styles.title}>Login</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Email"
+            placeholderTextColor="#666"
+            keyboardType="email-address"
+            value={email}
+            onChangeText={(text) => setEmail(text)}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Password"
+            placeholderTextColor="#666"
+            secureTextEntry
+            value={password}
+            onChangeText={(text) => setPassword(text)}
+          />
+          <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
+            <Text style={styles.buttonText}>Login</Text>
+          </TouchableOpacity>
+        </>
+      )}
+    </KeyboardAvoidingView>
   );
 };
 

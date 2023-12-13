@@ -15,10 +15,10 @@ module.exports = {
       },
     ],
     "react-native-reanimated/plugin",
-    "expo-location",
-    {
-      locationAlwaysAndWhenInUsePermission:
-        "Allow $(PRODUCT_NAME) to use your location.",
-    },
-  ],
+    // "expo-location",
+  //   {
+  //     locationAlwaysAndWhenInUsePermission:
+  //       "Allow $(PRODUCT_NAME) to use your location.",
+  //   },
+   ],
 };
