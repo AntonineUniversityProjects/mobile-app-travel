@@ -1,0 +1,46 @@
+[debug] [2023-12-13T00:00:10.979Z] ----------------------------------------------------------------------
+[debug] [2023-12-13T00:00:10.981Z] Command:       /usr/bin/node /usr/bin/firebase init functions
+[debug] [2023-12-13T00:00:10.981Z] CLI Version:   13.0.1
+[debug] [2023-12-13T00:00:10.982Z] Platform:      linux
+[debug] [2023-12-13T00:00:10.982Z] Node Version:  v21.2.0
+[debug] [2023-12-13T00:00:10.982Z] Time:          Wed Dec 13 2023 02:00:10 GMT+0200 (Eastern European Standard Time)
+[debug] [2023-12-13T00:00:10.982Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-12-13T00:00:10.986Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-12-13T00:00:10.986Z] > authorizing via signed-in user (roy.gebrayel11@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/roy/mobile-app-travel
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
+[debug] [2023-12-13T00:00:34.526Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects [none]
+[debug] [2023-12-13T00:00:34.527Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"projectId":"email-servince-function","name":"email-servince-function"}
+[debug] [2023-12-13T00:00:40.765Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects 200
+[debug] [2023-12-13T00:00:40.766Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"name":"operations/cp.5572462225011888076"}
+[debug] [2023-12-13T00:00:40.767Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5572462225011888076 [none]
+[debug] [2023-12-13T00:00:41.775Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5572462225011888076 200
+[debug] [2023-12-13T00:00:41.776Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5572462225011888076 {"name":"operations/cp.5572462225011888076","metadata":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.ProjectCreationStatus","ready":true},"done":true,"error":{"code":9,"message":"Callers must accept Terms of Service","details":[{"@type":"type.googleapis.com/google.rpc.PreconditionFailure","violations":[{"type":"TOS","subject":"cloud","description":"Callers must accept Terms of Service"}]}]}}
+[debug] [2023-12-13T00:00:46.785Z] Error: Timed out.
+    at Timeout._onTimeout (/usr/lib/node_modules/firebase-tools/lib/utils.js:258:49)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[error] 
+[error] Error: An unexpected error has occurred.

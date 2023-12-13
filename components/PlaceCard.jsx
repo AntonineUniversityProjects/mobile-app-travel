@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, StyleSheet, Image, TouchableOpacity, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-const PlaceCard = ({ image, description }) => {
+const PlaceCard = ({ image, description , detailedDescription }) => {
   const [showText, setShowText] = useState(false);
   const navigation = useNavigation();
 
@@ -14,11 +14,14 @@ const PlaceCard = ({ image, description }) => {
     setShowText(false);
   };
 
-  const handleImagePress = () => {
-    // Navigate to the PlaceDetail screen with the place name as a parameter
-    navigation.navigate("PlaceDetail", { place: description });
-  };
-
+ const handleImagePress = () => {
+   // Navigate to the PlaceDetail screen with the place name as a parameter
+   navigation.navigate("PlaceDetail", {
+     description: description,
+     placeImage: image,
+     detailedDescription: detailedDescription,
+   });
+ };
   return (
     <View style={styles.imageContainer}>
       <TouchableOpacity

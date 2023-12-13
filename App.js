@@ -12,6 +12,7 @@ import PlaceDetailScreen from "./screens/PlaceDetailScreen";
 import Onboarding1 from "./screens/Onboarding/Onboarding1";
 import Onboarding2 from "./screens/Onboarding/Onboarding2";
 import Onboarding3 from "./screens/Onboarding/Onboarding3";
+import BookingScreen from "./screens/BookingScreen";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -27,6 +28,7 @@ const HomeTabs = () => {
           tabBarIcon: ({ color, size }) => (
             <FontAwesome5 name="home" size={size} color={color} />
           ),
+          headerShown : false
         }}
       />
       <Tab.Screen name="Camera" component={CameraScreen} />
@@ -42,14 +44,23 @@ const App = () => {
         <Stack.Screen name="Onboarding2" component={Onboarding2} />
         <Stack.Screen name="Onboarding3" component={Onboarding3} />
         <Stack.Screen name="Signup" component={Signup} />
+        <Stack.Screen name="Booking" component={BookingScreen} />
         <Stack.Screen
           name="Home"
           component={HomeTabs}
           options={{ headerShown: false }}
         />
-        <Stack.Screen name="Hero" component={Hero} />
-        <Stack.Screen name="PlaceDetail" component={PlaceDetailScreen} />
-        <Stack.Screen name= "Login" component={Login}/>
+        <Stack.Screen
+          name="Hero"
+          component={Hero}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="PlaceDetail"
+          component={PlaceDetailScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen name="Login" component={Login} />
       </Stack.Navigator>
     </NavigationContainer>
   );

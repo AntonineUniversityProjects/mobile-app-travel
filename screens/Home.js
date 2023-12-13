@@ -21,10 +21,18 @@ const HomeScreen = () => {
 
   const descriptions = [
     "Beirut",
-    "Description for Image 2",
-    "Description for Image 3",
-    "Description for Image 4",
+    "Tyre",
+    "Byblos",
+    "Cedars of God",
   ];
+
+  const detailedDescription = [
+    "detailedbeirut" ,
+    "detailedtyre",
+    "detailedByblos",
+    "de"
+
+  ]
 
   return (
     <ScrollView style={styles.scrollView}>
@@ -49,10 +57,10 @@ const HomeScreen = () => {
             <Text style={styles.placesText}> Top Places To Visit</Text>
           </View>
           <View style={styles.placesImagesContainer}>
-            {groupImages(images, descriptions).map((group, index) => (
+            {groupImages(images, descriptions , detailedDescription).map((group, index) => (
               <View key={index} style={styles.row}>
-                {group.map(({ image, description }, i) => (
-                  <PlaceCard key={i} image={image} description={description} />
+                {group.map(({ image, description , detailedDescription }, i) => (
+                  <PlaceCard key={i} image={image} description={description} details = {detailedDescription}/>
                 ))}
               </View>
             ))}
@@ -89,7 +97,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    paddingTop: 20,
+    paddingTop: 55,
     width: "100%",
     backgroundColor: "#E99265",
     borderBottomLeftRadius: 40,
@@ -128,7 +136,7 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: "row",
-    marginBottom: 10, // Reduce the space between rows
+    marginBottom: 10, 
   },
   imageContainer: {
     width: "50%",
