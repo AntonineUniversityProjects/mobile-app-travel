@@ -14,7 +14,8 @@ import { useNavigation } from "@react-navigation/native";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../config/firebaseconfig.js";
 import { CommonActions } from "@react-navigation/native";
-import TravelLoading from "../components/travelLoading.jsx";
+import TravelLoading from "../components/travelLoading.js";
+import Travel from "./travel.js";
 const Signup = () => {
   const navigation = useNavigation();
 
@@ -86,7 +87,7 @@ const Signup = () => {
       keyboardVerticalOffset={100}
     >
       {isLoading ? (
-        <TravelLoading/>
+        <Travel/>
       ) : (
         <ScrollView>
           {/* Existing code */}

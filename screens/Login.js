@@ -4,57 +4,59 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
+  Image,
+  ScrollView,
   StyleSheet,
   Alert,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../config/firebaseconfig.js";
 import { CommonActions } from "@react-navigation/native";
+import Signup from "./Signup.js";
+import TravelLoading from "../components/travelLoading.js"
+import Travel from "./travel.js";
 
-import TravelLoading from "../components/travelLoading";
+const Login = () => {
+  const navigation = useNavigation();
 
-const Login = ({navigation}) => {
 
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
+  
   const handleLogin = async () => {
     try {
       if (!email || !password) {
         Alert.alert("Error", "Please fill in all the fields");
         return;
       }
-
+  
       setIsLoading(true); // Start loading
-
+  
       await signInWithEmailAndPassword(auth, email, password);
-      console.log("User signed up successfully!");
-
-      // Simulate a loading delay (you can replace this with a real loading scenario)
+      console.log("User signed in successfully!");
+  
+      // Simulate a loading delay (replace with actual loading scenarios)
       setTimeout(() => {
         setIsLoading(false); // Stop loading
-
+  
         navigation.dispatch(
           CommonActions.reset({
             index: 0,
-            routes: [
-              {
-                name: "Home",
-              },
-            ],
+            routes: [{ name: "Home" },],
           })
         );
-      }, 2000);
+      }, 2000); // Replace 2000 with your desired loading time
     } catch (error) {
       setIsLoading(false); // Stop loading in case of an error
-      console.error("Error signing up:", error.message);
+      console.error("Error signing in:", error.message);
       Alert.alert("Error", error.message);
     }
   };
-
+  
 
   return (
     <KeyboardAvoidingView
@@ -62,10 +64,14 @@ const Login = ({navigation}) => {
       behavior={"padding"}
       keyboardVerticalOffset={100}
     >
-      {isLoading ? (
-        <TravelLoading/>
+     {isLoading ? (
+      <Travel/>
       ) : (
-        <>
+      
+          
+         
+          <>
+        
           <Text style={styles.title}>Login</Text>
           <TextInput
             style={styles.input}
@@ -85,8 +91,11 @@ const Login = ({navigation}) => {
           />
           <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
             <Text style={styles.buttonText}>Login</Text>
+            
           </TouchableOpacity>
-        </>
+          </>
+         
+        
       )}
     </KeyboardAvoidingView>
   );

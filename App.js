@@ -10,6 +10,7 @@ import Signup from "./screens/Signup";
 import Login from "./screens/Login";
 import PlaceDetailScreen from "./screens/PlaceDetailScreen";
 import Onboarding1 from "./screens/Onboarding/Onboarding1";
+import Travel from "./screens/travel";
 
 import BookingScreen from "./screens/BookingScreen";
 import FindLocationScreen from "./screens/FindLocationScreen";
@@ -50,6 +51,7 @@ const App = () => {
         <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen name="Booking" component={BookingScreen} />
        <Stack.Screen name ="NotificationScreen" component={NotificationScreen}/>
+       <Stack.Screen name="travel" component={Travel}/>
         <Stack.Screen
           name="Home"
           component={HomeTabs}
