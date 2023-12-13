@@ -15,6 +15,7 @@ import Onboarding3 from "./screens/Onboarding/Onboarding3";
 import BookingScreen from "./screens/BookingScreen";
 import FindLocationScreen from "./screens/FindLocationScreen";
 import VerificationScreen from "./screens/VerificationScreen";
+import registerNNPushToken from 'native-notify'; //for push notification
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -41,6 +42,7 @@ const HomeTabs = () => {
 };
 
 const App = () => {
+  registerNNPushToken(16726, 'tXj9QBdb7I44T6Oqs5YZQV');//push notification
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Onboarding1" headerMode="none">
