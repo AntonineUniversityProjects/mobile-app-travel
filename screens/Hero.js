@@ -1,6 +1,9 @@
-import React from "react";
+import React, { Component } from "react";
 import * as Animatable from "react-native-animatable";
 import { useNavigation } from "@react-navigation/native";
+import Signup from "./Signup";
+import Login from "./Login";
+
 import {
   View,
   Text,
@@ -8,12 +11,12 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
+
 hikingimgurl =
   "https://mobilephoto.blob.core.windows.net/mobilrphotod/Screenshot_from_2023-12-07_23-11-25-removebg-preview.png";
 
-
 const Hero = () => {
-    const navigation = useNavigation();
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#FFFFFF" }}>
       {/* First Section */}
@@ -60,7 +63,6 @@ const Hero = () => {
         <Text style={{ color: "#00BCC9", fontSize: 38, fontWeight: "bold" }}>
           Good Moments
         </Text>
-       
       </View>
 
       {/* Circle Section */}
@@ -115,21 +117,37 @@ const Hero = () => {
         />
 
         <TouchableOpacity
-          onPress={() =>  navigation.navigate("Signup") }
-        
-         style={{
+          onPress={() => navigation.navigate(Signup)}
+          style={{
             position: "absolute",
             bottom: 20,
             width: "50%",
             height: 40,
-            backgroundColor: "#FFFFFF",
+            backgroundColor: "#00BCC9",
             borderRadius: 10,
             alignItems: "center",
             justifyContent: "center",
           }}
         >
-          <Text style={{ color: "#00BCC9", fontSize: 30, fontWeight: "bold" }}>
+          <Text style={{ color: "#FFFFFF", fontSize: 30, fontWeight: "bold" }}>
             Signup
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("Login");
+          }}
+          style={{
+            position: "absolute",
+            bottom: 0, // Set this to 0 to place it below Signup
+            width: "100%", // Make it full-width
+            height: 40,
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Text style={{ color: "#fff", fontSize: 18, fontWeight: "bold" , paddingTop : 21 }}>
+            already a user? log in
           </Text>
         </TouchableOpacity>
 

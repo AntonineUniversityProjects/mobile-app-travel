@@ -1,4 +1,3 @@
-
 import {
   SafeAreaView,
   StyleSheet,
@@ -8,10 +7,14 @@ import {
   ScrollView,
   Image,
   Button,
+  TouchableOpacity,
 } from "react-native";
+import CameraScreen from "./CameraScreen";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Flags() {
-  
+  const navigation = useNavigation();
+
   return (
     <>
       <SafeAreaView style={styles.container}>
@@ -98,6 +101,20 @@ export default function Flags() {
               onPress={() => navigation.navigate("Text")}
             />
           </View> */}
+
+          <TouchableOpacity
+            onPress={() => navigation.navigate("CameraScreen")}
+            style={{
+              position: "absolute",
+              bottom: 20,
+              width: "50%",
+              height: 40,
+              backgroundColor: "#FFFFFF",
+              borderRadius: 10,
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          ></TouchableOpacity>
         </ScrollView>
       </SafeAreaView>
     </>
