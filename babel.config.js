@@ -14,6 +14,11 @@ module.exports = {
         allowUndefined: true,
       },
     ],
-    "react-native-reanimated/plugin", 
+    "react-native-reanimated/plugin",
+    "expo-location",
+    {
+      locationAlwaysAndWhenInUsePermission:
+        "Allow $(PRODUCT_NAME) to use your location.",
+    },
   ],
 };

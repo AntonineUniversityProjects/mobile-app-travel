@@ -13,6 +13,7 @@ import Onboarding1 from "./screens/Onboarding/Onboarding1";
 import Onboarding2 from "./screens/Onboarding/Onboarding2";
 import Onboarding3 from "./screens/Onboarding/Onboarding3";
 import BookingScreen from "./screens/BookingScreen";
+import FindLocationScreen from "./screens/FindLocationScreen";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -28,10 +29,11 @@ const HomeTabs = () => {
           tabBarIcon: ({ color, size }) => (
             <FontAwesome5 name="home" size={size} color={color} />
           ),
-          headerShown : false
+          headerShown: false,
         }}
       />
       <Tab.Screen name="Camera" component={CameraScreen} />
+      <Tab.Screen name="FindLocationScreen" component={FindLocationScreen} />
     </Tab.Navigator>
   );
 };
