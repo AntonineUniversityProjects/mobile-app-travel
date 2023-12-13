@@ -37,6 +37,7 @@
     "expo-location": "~16.1.0",
     "expo-media-library": "~15.4.1",
     "expo-modules-core": "^1.5.12",
+    "expo-notifications": "~0.20.1",
     "expo-status-bar": "~1.6.0",
     "firebase": "^10.7.1",
     "native-notify": "^3.2.4",
@@ -53,11 +54,11 @@
     "react-native-reanimated": "~3.3.0",
     "react-native-snap-carousel": "^3.9.1",
     "react-native-star-rating": "^1.1.0",
+    "react-native-swiper": "^1.6.0",
     "react-native-vector-icons": "^10.0.2",
     "react-native-vision-camera": "^3.6.12",
     "react-navigation": "^4.4.4",
-    "react-navigation-stack": "^2.10.4",
-    "expo-notifications": "~0.20.1"
+    "react-navigation-stack": "^2.10.4"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

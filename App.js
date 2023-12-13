@@ -10,8 +10,7 @@ import Signup from "./screens/Signup";
 import Login from "./screens/Login";
 import PlaceDetailScreen from "./screens/PlaceDetailScreen";
 import Onboarding1 from "./screens/Onboarding/Onboarding1";
-import Onboarding2 from "./screens/Onboarding/Onboarding2";
-import Onboarding3 from "./screens/Onboarding/Onboarding3";
+
 import BookingScreen from "./screens/BookingScreen";
 import FindLocationScreen from "./screens/FindLocationScreen";
 import VerificationScreen from "./screens/VerificationScreen";
@@ -25,7 +24,7 @@ const HomeTabs = () => {
   return (
     <Tab.Navigator>
       <Tab.Screen
-        name="Home"
+        name="Homee"
         component={Home}
         options={{
           tabBarLabel: "Home",
@@ -47,9 +46,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Onboarding1" headerMode="none">
-        <Stack.Screen name="Onboarding1" component={Onboarding1} />
-        <Stack.Screen name="Onboarding2" component={Onboarding2} />
-        <Stack.Screen name="Onboarding3" component={Onboarding3} />
+        <Stack.Screen name="Onboarding" component={Onboarding1} />
         <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen name="Booking" component={BookingScreen} />
        <Stack.Screen name ="NotificationScreen" component={NotificationScreen}/>
