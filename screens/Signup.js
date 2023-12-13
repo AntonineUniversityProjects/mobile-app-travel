@@ -36,6 +36,27 @@ const Signup = () => {
       await createUserWithEmailAndPassword(auth, email, password);
       console.log("User signed up successfully!");
 
+      // Make an HTTP request to the Azure Functions endpoint for sending emails
+      const azureFunctionEndpoint =
+        "https://functionnodeappp.azurewebsites.net/api/Email-Sending?code=c8C9xXzPyOySsDZzF_EnfiOiYk4pm8Wd-3rRKrqn4ZQuAzFuU197aQ==";
+      const response = await fetch(azureFunctionEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, fullName }), // Pass relevant data to the Azure Function
+      });
+
+      if (response.ok) {
+        console.log("Email sent successfully!");
+      } else {
+        console.error(
+          "Error sending email:",
+          response.status,
+          response.statusText
+        );
+      }
+
       // Simulate a loading delay (you can replace this with a real loading scenario)
       setTimeout(() => {
         setIsLoading(false); // Stop loading
@@ -45,12 +66,12 @@ const Signup = () => {
             index: 0,
             routes: [
               {
-                name: "Home", 
+                name: "Home",
               },
             ],
           })
         );
-      }, 2000); 
+      }, 2000);
     } catch (error) {
       setIsLoading(false); // Stop loading in case of an error
       console.error("Error signing up:", error.message);
