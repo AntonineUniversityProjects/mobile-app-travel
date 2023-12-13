@@ -68,22 +68,22 @@ export default function CameraScreen({ navigation }) {
 
   const cameraRef = useRef(null);
 
-  // if (!permission) {
-  //   // Camera permissions are still loading
-  //   return <View />;
-  // }
+  if (!permission) {
+    // Camera permissions are still loading
+    return <View />;
+  }
 
-  // if (!permission.granted) {
-  //   // Camera permissions are not granted yet
-  //   return (
-  //     <View style={styles.container}>
-  //       <Text style={{ textAlign: "center" }}>
-  //         We need your permission to show the camera
-  //       </Text>
-  //       <Button onPress={requestPermission} title="grant permission" />
-  //     </View>
-  //   );
-  // }
+  if (!permission.granted) {
+    // Camera permissions are not granted yet
+    return (
+      <View style={styles.container}>
+        <Text style={{ textAlign: "center" }}>
+          We need your permission to show the camera
+        </Text>
+        <Button onPress={requestPermission} title="grant permission" />
+      </View>
+    );
+  }
 
   //  const takePicture = () => {
   //    if (Camera) {
