@@ -14,6 +14,7 @@ import Onboarding2 from "./screens/Onboarding/Onboarding2";
 import Onboarding3 from "./screens/Onboarding/Onboarding3";
 import BookingScreen from "./screens/BookingScreen";
 import FindLocationScreen from "./screens/FindLocationScreen";
+import VerificationScreen from "./screens/VerificationScreen";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -32,6 +33,7 @@ const HomeTabs = () => {
           headerShown: false,
         }}
       />
+      
       <Tab.Screen name="Camera" component={CameraScreen} />
       <Tab.Screen name="FindLocationScreen" component={FindLocationScreen} />
     </Tab.Navigator>
@@ -55,6 +57,11 @@ const App = () => {
         <Stack.Screen
           name="Hero"
           component={Hero}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="VerificationScreen"
+          component={VerificationScreen}
           options={{ headerShown: false }}
         />
         <Stack.Screen
