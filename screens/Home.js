@@ -46,7 +46,7 @@ const HomeScreen = ({ navigation }) => {
           <Text style={styles.TopContainerText}>
             Have A Plan For{"\n"}A Vacation?
           </Text>
-          <TouchableOpacity style={styles.notificationContainer} onPress={() => navigation.navigate("Onboarding")}>
+          <TouchableOpacity style={styles.notificationContainer} onPress={() => navigation.navigate("NotificationScreen")}>
           <View >
     <FontAwesome5
       name="bell"
