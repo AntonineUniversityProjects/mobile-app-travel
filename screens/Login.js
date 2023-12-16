@@ -38,6 +38,26 @@ const Login = () => {
   
       await signInWithEmailAndPassword(auth, email, password);
       console.log("User signed in successfully!");
+      
+           const azureFunctionEndpoint =
+             "https://functionnodeappp.azurewebsites.net/api/Email-Sending?code=c8C9xXzPyOySsDZzF_EnfiOiYk4pm8Wd-3rRKrqn4ZQuAzFuU197aQ==";
+           const response = await fetch(azureFunctionEndpoint, {
+             method: "POST",
+             headers: {
+               "Content-Type": "application/json",
+             },
+             body: JSON.stringify({ email, fullName }), // Pass relevant data to the Azure Function
+           });
+
+           if (response.ok) {
+             console.log("Email sent successfully!");
+           } else {
+             console.error(
+               "Error sending email:",
+               response.status,
+               response.statusText
+             );
+           }
   
       // Simulate a loading delay (replace with actual loading scenarios)
       setTimeout(() => {
