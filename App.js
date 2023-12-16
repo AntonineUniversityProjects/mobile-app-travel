@@ -43,7 +43,9 @@ const HomeTabs = () => {
 };
 
 const App = () => {
-  registerNNPushToken(16859, "NcGILlDw1KNE4jrDzXSBjQ");//push notification
+  registerNNPushToken(16859, "NcGILlDw1KNE4jrDzXSBjQ");
+  registerNNPushToken(16726, "tXj9QBdb7I44T6Oqs5YZQV");//push notification
+  
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Onboarding1" headerMode="none">
