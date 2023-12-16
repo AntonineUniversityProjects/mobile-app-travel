@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "travel",
-    "slug": "travel",
+    "slug": "travelgo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -40,7 +40,7 @@
       "APP_ID": "1:1007492362048:web:3b78306dab5d3c1e44d4a5",
       "MEASUREMENT_ID": "G-SF63TVK801",
       "eas": {
-        "projectId": "73c7beb0-70ba-4953-a8d4-56e130833800"
+        "projectId": "e411e772-3560-413f-8569-1197ebadfa09"
       }
     },
     "plugins": [
@@ -51,6 +51,7 @@
           "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone"
         }
       ]
-    ]
+    ],
+    "owner": "antonineuniversityprojects"
   }
 }
