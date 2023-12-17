@@ -44,7 +44,7 @@ const HomeTabs = () => {
 
 const App = () => {
   registerNNPushToken(16859, "NcGILlDw1KNE4jrDzXSBjQ");
-  registerNNPushToken(16726, "tXj9QBdb7I44T6Oqs5YZQV");//push notification
+  registerNNPushToken(16726, "tXj9QBdb7I44T6Oqs5YZQV");
   
   return (
     <NavigationContainer>
@@ -52,8 +52,11 @@ const App = () => {
         <Stack.Screen name="Onboarding" component={Onboarding1} />
         <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen name="Booking" component={BookingScreen} />
-       <Stack.Screen name ="NotificationScreen" component={NotificationScreen}/>
-       <Stack.Screen name="travel" component={Travel}/>
+        <Stack.Screen
+          name="NotificationScreen"
+          component={NotificationScreen}
+        />
+        <Stack.Screen name="travel" component={Travel} />
         <Stack.Screen
           name="Home"
           component={HomeTabs}
@@ -74,7 +77,11 @@ const App = () => {
           component={PlaceDetailScreen}
           options={{ headerShown: false }}
         />
-        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
