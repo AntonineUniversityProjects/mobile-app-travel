@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import FindLocation from "../components/FindLocation.jsx"; // Adjust the path as needed
+import FindLocation from "../components/FindLocation.jsx"; 
 
 const FindLocationScreen = () => {
   return (

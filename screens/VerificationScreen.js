@@ -8,7 +8,7 @@ import {
   Alert,
 } from "react-native";
 import TravelLoading from "../components/travelLoading";
-import { CommonActions } from "@react-navigation/native"; // Assuming this is the correct import for navigation
+import { CommonActions } from "@react-navigation/native"; 
 
 const VerificationScreen = ({ route, navigation }) => {
   const { capturedPhoto } = route.params;
@@ -20,12 +20,12 @@ const VerificationScreen = ({ route, navigation }) => {
     // Display the captured photo before uploading
     setUploadedImageUri(capturedPhoto.uri);
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, []);
 
   const uploadToAzureStorage = async () => {
     try {
-      // If the photo has already been sent, do nothing
+ 
       if (photoSent) {
         return;
       }
@@ -33,10 +33,10 @@ const VerificationScreen = ({ route, navigation }) => {
       // Set loading to true to display the loading component
       setIsLoading(true);
 
-      // Update these values with your Azure Storage account details
+      //  Azure Storage account details
       const accountName = "mobilephoto";
       const containerName = "uploadedverificationphotos";
-      const blobName = `photo-${Date.now()}.jpg`; // Generate a unique blob name
+      const blobName = `photo-${Date.now()}.jpg`; 
       const sasToken =
         "?sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=2023-12-13T18:43:58Z&st=2023-12-13T10:43:58Z&spr=https,http&sig=ZPZzLM%2FxaLwhKwxU%2BSZtQr3jF3ZPXuee1FBE7%2FOttv8%3D";
 
@@ -46,15 +46,15 @@ const VerificationScreen = ({ route, navigation }) => {
         method: "PUT",
         headers: {
           "x-ms-blob-type": "BlockBlob",
-          "Content-Type": "image/jpeg", // Adjust the content type based on your file type
+          "Content-Type": "image/jpeg", 
         },
-        body: capturedPhoto.uri, // Use the captured photo URI as the body
+        body: capturedPhoto.uri, 
       });
 
       if (response.ok) {
         console.log("Image uploaded successfully");
         setUploadedImageUri(azureStorageUri);
-        // Mark the photo as sent to prevent further uploads
+      
         setPhotoSent(true);
       } else {
         console.error(
@@ -67,7 +67,7 @@ const VerificationScreen = ({ route, navigation }) => {
       console.error("Error uploading to Azure Storage:", error);
       Alert.alert("Error", error.message);
     } finally {
-      setIsLoading(false); // Stop loading, whether it succeeded or failed
+      setIsLoading(false); // Stop loading
     }
   };
 
@@ -76,9 +76,7 @@ const VerificationScreen = ({ route, navigation }) => {
   };
 
   const onSend = () => {
-    // Trigger the upload to Azure Storage when the "Send" button is pressed 
-    //  setIsLoading(true); // Start loading
-    //  <TravelLoading />;
+
     uploadToAzureStorage();
     try {
       // Simulate a loading delay (you can replace this with a real loading scenario)

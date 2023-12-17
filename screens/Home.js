@@ -4,13 +4,13 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import * as Font from "expo-font";
 import { SearchBar } from "../components/SearchBar.jsx";
 import TravelCarousel from "../components/TravelCarousel.jsx";
-import PlaceCard from "../components/PlaceCard.jsx"; // Import the PlaceCard component
+import Footer from "../components/Footer.jsx";
+import PlaceCard from "../components/PlaceCard.jsx"; 
 
 import NotificationInbox from "./NotificationScreen.js";
 
 Font.loadAsync({
   Japanese: require("../assets/fonts/Dekers_light.ttf"),
-  // Add additional weights or styles if needed
 });
 
 
@@ -75,6 +75,7 @@ const HomeScreen = ({ navigation }) => {
           </View>
         </View>
       </View>
+      <Footer/>
     </ScrollView>
   );
 };

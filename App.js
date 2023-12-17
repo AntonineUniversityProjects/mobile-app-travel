@@ -25,7 +25,7 @@ const HomeTabs = () => {
   return (
     <Tab.Navigator>
       <Tab.Screen
-        name="Homee"
+        name="Home"
         component={Home}
         options={{
           tabBarLabel: "Home",
@@ -35,9 +35,28 @@ const HomeTabs = () => {
           headerShown: false,
         }}
       />
-      
-      <Tab.Screen name="Camera" component={CameraScreen} />
-      <Tab.Screen name="FindLocationScreen" component={FindLocationScreen} />
+      <Tab.Screen
+        name="Camera"
+        component={CameraScreen}
+        options={{
+          tabBarLabel: "Camera",
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome5 name="camera" size={size} color={color} />
+          ),
+          headerShown: false,
+        }}
+      />
+      <Tab.Screen
+        name="Find Location"
+        component={FindLocationScreen}
+        options={{
+          tabBarLabel: "Find Location",
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome5 name="map-marker-alt" size={size} color={color} />
+          ),
+          headerShown: false,
+        }}
+      />
     </Tab.Navigator>
   );
 };
@@ -49,9 +68,17 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Onboarding1" headerMode="none">
-        <Stack.Screen name="Onboarding" component={Onboarding1} />
+        <Stack.Screen
+          name="Onboarding"
+          component={Onboarding1}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen name="Signup" component={Signup} />
-        <Stack.Screen name="Booking" component={BookingScreen} />
+        <Stack.Screen
+          name="Booking"
+          component={BookingScreen}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="NotificationScreen"
           component={NotificationScreen}

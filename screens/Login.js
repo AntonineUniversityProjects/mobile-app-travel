@@ -136,10 +136,10 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "bold",
     marginBottom: 20,
-    color: "#fff", // Text color for better visibility on the background
+    color: "#fff",
   },
   input: {
-    backgroundColor: "rgba(255,255,255,0.8)", // Semi-transparent white background
+    backgroundColor: "rgba(255,255,255,0.8)",
     padding: 12,
     borderRadius: 8,
     marginBottom: 16,
