@@ -17,6 +17,7 @@ import FindLocationScreen from "./screens/FindLocationScreen";
 import VerificationScreen from "./screens/VerificationScreen";
 import NotificationScreen from "./screens/NotificationScreen"
 import registerNNPushToken from 'native-notify'; //for push notification
+import TripBookingApp from "./screens/TripBookingApp"
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -54,6 +55,13 @@ const HomeTabs = () => {
           tabBarIcon: ({ color, size }) => (
             <FontAwesome5 name="map-marker-alt" size={size} color={color} />
           ),
+          headerShown: false,
+        }}
+      />
+      <Tab.Screen
+        name="trip booking "
+        component={TripBookingApp}
+        options={{
           headerShown: false,
         }}
       />
