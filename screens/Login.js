@@ -15,8 +15,8 @@ import { useNavigation } from "@react-navigation/native";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../config/firebaseconfig.js";
 import { CommonActions } from "@react-navigation/native";
-import Signup from "./Signup.js";
-import TravelLoading from "../components/travelLoading.js"
+// import Signup from "./Signup.js";
+// import TravelLoading from "../components/travelLoading.js"
 import Travel from "./travel.js";
 
 const Login = () => {
@@ -45,7 +45,7 @@ const Login = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, fullName }), // Pass relevant data to the Azure Function
+        // body: JSON.stringify({ email, password }), 
       });
 
       if (response.ok) {
@@ -58,7 +58,7 @@ const Login = () => {
         );
       }
 
-      // Simulate a loading delay (replace with actual loading scenarios)
+      
       setTimeout(() => {
         setIsLoading(false); // Stop loading
 
@@ -68,9 +68,9 @@ const Login = () => {
             routes: [{ name: "Home" }],
           })
         );
-      }, 2000); // Replace 2000 with your desired loading time
+      }, 2000);
     } catch (error) {
-      setIsLoading(false); // Stop loading in case of an error
+      setIsLoading(false); // Stop loading 
       console.error("Error signing in:", error.message);
       Alert.alert("Error", error.message);
     }
@@ -80,7 +80,7 @@ const Login = () => {
     <ImageBackground
       source={{
         uri: "https://mobilephoto.blob.core.windows.net/mobilrphotod/3d-abstract-travel-wallpaper-awesome-rxo3qqiqy1uw5mcm.webp",
-      }} // Change path accordingly
+      }} 
       style={styles.background}
     >
       <KeyboardAvoidingView
@@ -161,3 +161,4 @@ const styles = StyleSheet.create({
 });
 
 export default Login;
+

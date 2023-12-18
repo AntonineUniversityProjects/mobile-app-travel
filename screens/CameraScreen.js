@@ -59,22 +59,21 @@ const takePicture = async () => {
     console.log(photo);
 
     try {
-      // Save the photo to the device gallery
+    
       const asset = await MediaLibrary.createAssetAsync(photo.uri);
-      // You can do additional actions with the asset if needed
+
       console.log("Photo saved to gallery:", asset);
     } catch (error) {
       console.error("Error saving photo to gallery:", error);
     }
   };
   const onConfirm = () => {
-    // You can now handle the confirmed photo, e.g., save or process it
-    // For now, let's navigate to the next screen with the captured photo
+
     navigation.navigate("VerificationScreen", { capturedPhoto });
   };
 
   const onRetake = () => {
-    // Clear the captured photo and allow the user to take a new one
+    // Clear the captured photo 
     setCapturedPhoto(null);
   };
 
