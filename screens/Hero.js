@@ -139,8 +139,8 @@ const Hero = () => {
           }}
           style={{
             position: "absolute",
-            bottom: 0, // Set this to 0 to place it below Signup
-            width: "100%", // Make it full-width
+            bottom: 0, 
+            width: "100%",
             height: 40,
             alignItems: "center",
             justifyContent: "center",

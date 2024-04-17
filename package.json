@@ -30,7 +30,7 @@
     "appcenter": "5.0.0",
     "appcenter-analytics": "5.0.0",
     "appcenter-crashes": "5.0.0",
-    "axios": "^1.6.2",
+    "axios": "^1.6.8",
     "deprecated-react-native-prop-types": "^5.0.0",
     "eas": "^0.1.0",
     "eas-cli": "^5.9.2",

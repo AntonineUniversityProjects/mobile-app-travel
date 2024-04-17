@@ -18,7 +18,7 @@ const HomeScreen = ({ navigation }) => {
 
 
   const images = [
-    "https://mobilephoto.blob.core.windows.net/mobilrphotod/1413271.jpg",
+    "https://mobilephoto.blob.core.windows.net/mobilrphotod/the-colorful-neighborhood-of-gemmayze-beirut-le-12-22-2017-2-26-53-pm-l.jpg",
     "https://mobilephoto.blob.core.windows.net/mobilrphotod/tyre.jpeg",
     "https://mobilephoto.blob.core.windows.net/mobilrphotod/byblos.jpeg",
     "https://mobilephoto.blob.core.windows.net/mobilrphotod/Cedars-in-Lebanon.jpg",
